@@ -1,2 +1,2 @@
 # practice
-A repo to store code samples of topic I am learning about
+A repo to store code samples of topics I am learning about
