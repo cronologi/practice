@@ -8,27 +8,21 @@
 def is_palindrome_permutation(text: str) -> bool:
     hashtable = {}
     char_array = list(text)
-    length = 0
 
     for c in char_array:
         if c != " ":
             c = c.lower()
             hashtable[c] = hashtable.get(c, 0) + 1
-            length += 1
 
-    is_char_array_length_even = length % 2 == 0
-
-    if is_char_array_length_even:
-        return all(v % 2 == 0 for v in hashtable.values())
-    else:
-        odd_char_found = False
-        for v in hashtable.values():
-            if v % 2 != 0 and odd_char_found == False:
-                odd_char_found = True
-            elif v % 2 != 0 and odd_char_found == True:
+    odd_char_found = False
+    for v in hashtable.values():
+        if v % 2 == 1:
+            if odd_char_found:
                 return False
-        return True
+            odd_char_found = True
+
+    return True
 
 
-result = is_palindrome_permutation("Tact Coa")
+result = is_palindrome_permutation("level")
 print(result)
